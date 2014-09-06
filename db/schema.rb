@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906125521) do
+ActiveRecord::Schema.define(version: 20140906194654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,49 +53,35 @@ ActiveRecord::Schema.define(version: 20140906125521) do
     t.string   "company"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.integer  "segment_id"
+    t.integer  "itinerary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "car_rentals", ["segment_id"], name: "index_car_rentals_on_segment_id", using: :btree
-
-  create_table "flights", force: true do |t|
+  create_table "flight_plans", force: true do |t|
     t.datetime "start_at"
     t.datetime "end_at"
     t.string   "start_airport"
     t.string   "end_airport"
-    t.integer  "segment_id"
+    t.integer  "itinerary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "flights", ["segment_id"], name: "index_flights_on_segment_id", using: :btree
 
   create_table "hotel_bookings", force: true do |t|
     t.string   "name"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.integer  "segment_id"
+    t.integer  "itinerary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "hotel_bookings", ["segment_id"], name: "index_hotel_bookings_on_segment_id", using: :btree
 
   create_table "itineraries", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "segments", force: true do |t|
-    t.integer  "itinerary_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "segments", ["itinerary_id"], name: "index_segments_on_itinerary_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -108,8 +94,6 @@ ActiveRecord::Schema.define(version: 20140906125521) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

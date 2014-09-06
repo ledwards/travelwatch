@@ -17,13 +17,14 @@ ActiveAdmin.register Itinerary do
     f.semantic_errors # shows errors on :base
     f.inputs          # builds an input field for every attribute
     f.inputs do
-      f.has_many :flight_plans, heading: 'Segments', allow_destroy: true, new_record: 'New Segment' do |s|
-        s.inputs
-        # s.inputs do
-        #   s.has_many :flights, heading: "Flights", allow_destroy: true, new_record: true do |ff|
-        #     ff.input :start_at
-        #   end
-        # end
+      f.has_many :flight_plans, heading: 'Flights', allow_destroy: true, new_record: 'New Flight' do |fp|
+        fp.inputs
+      end
+      f.has_many :hotel_bookings, heading: 'Hotels', allow_destroy: true, new_record: 'New Hotel' do |hb|
+        hb.inputs
+      end
+      f.has_many :car_rentals, heading: 'Car Rentals', allow_destroy: true, new_record: 'New Car Rental' do |cr|
+        cr.inputs
       end
     end
     f.actions         # adds the 'Submit' and 'Cancel' buttons

@@ -4,10 +4,8 @@ class CreateCarRentals < ActiveRecord::Migration
     	t.string :company
     	t.datetime :start_at
     	t.datetime :end_at
-    	t.integer :itinerary_id
+      t.references :itinerary
       t.timestamps
     end
-
-    add_index :car_rentals, :segment_id
   end
 end
