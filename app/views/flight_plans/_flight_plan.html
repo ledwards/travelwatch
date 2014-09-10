@@ -1,0 +1,18 @@
+<li class="flight_plan">
+  <h3>
+    <%= flight_plan.start_at.strftime("%m/%d/%Y") %>
+  </h3>
+  <dl>
+    <dt>Departs</dt>
+    <dd>
+      <%= flight_plan.start_airport %>
+      <%= flight_plan.start_at.strftime("%m/%d/%Y %l:%M%P") %>
+    </dd>
+    <dt>Arrives</dt>
+    <dd>
+      <%= flight_plan.end_airport %>
+      <%= flight_plan.end_at.strftime("%m/%d/%Y %l:%M%P") %>
+    </dd>
+  </dl>
+  <h4>Confirmation Code: <%= flight_plan.confirmation_code %></h4>
+</li>
