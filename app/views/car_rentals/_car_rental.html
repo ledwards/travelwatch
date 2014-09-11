@@ -1,0 +1,16 @@
+<li class="car_rental">
+  <h3>
+    <%= car_rental.company %> on <%= car_rental.start_at.strftime("%m/%d/%Y") %>
+  </h3>
+  <dl>
+    <dt>Pick Up</dt>
+    <dd>
+      <%= car_rental.start_at.strftime("%m/%d/%Y %l:%M%P") %>
+    </dd>
+    <dt>Drop Off</dt>
+    <dd>
+      <%= car_rental.end_at.strftime("%m/%d/%Y %l:%M%P") %>
+    </dd>
+  </dl>
+  <h4>Confirmation Code: <%= car_rental.confirmation_code %></h4>
+</li>

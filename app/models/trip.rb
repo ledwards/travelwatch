@@ -19,7 +19,16 @@ class Trip
   end
 
   def destination
+    return nil if flight_plans.empty?
     midpoint = flight_plans.length / 2 - 1
     flight_plans[midpoint].end_airport
+  end
+
+  def start_at
+    items.first.start_at
+  end
+
+  def end_at
+    items.last.end_at
   end
 end

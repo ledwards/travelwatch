@@ -1,0 +1,12 @@
+<h1>Trips for <%= @user.email %> (Home: <%= current_user.home_airport %>)</h1>
+
+<ul class="trips">
+  <% @user.trips.each do |trip| %>
+    <li class="trip">
+      <h2><%= trip.items.first.start_at.strftime("%b. %d") %> Trip to <%= trip.destination %></h2>
+      <ol class="items">
+        <%= render trip.items %>
+      </ol>
+    </li>
+  <% end %>
+</ul>

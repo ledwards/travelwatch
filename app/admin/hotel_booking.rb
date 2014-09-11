@@ -1,18 +1,19 @@
 ActiveAdmin.register HotelBooking do
+ 
+  permit_params :start_at, :end_at, :name, :confirmation_code, :user_id
 
-
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
-
+  form do |f|
+    f.semantic_errors # shows errors on :base
+    f.inputs do
+      f.input :name
+      f.input :start_at, as: "datetime_picker"
+      f.input :end_at, as: "datetime_picker"
+      f.input :confirmation_code
+      f.inputs "User" do
+        f.input :user_id, :label => "Select a user:", :as => :select, :collection => User.all.map(&:email).zip(User.all.map(&:id))
+      end
+    end
+    f.actions         # adds the 'Submit' and 'Cancel' buttons
+  end
 
 end

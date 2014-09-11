@@ -32,12 +32,36 @@ class User < ActiveRecord::Base
   end
 
   def trips
+    calculate_trips
+  end
+
+  private
+
+  def calculate_trips
     trips = []
     flight_plans.order(:start_at).each do |fp|
       if fp.start_airport == home_airport
         trips << Trip.new([fp])
       else
         trips.last.flight_plans << fp
+      end
+    end
+
+    hotel_bookings.order(:start_at).each do |hb|
+      trip = trips.select{|t| t.start_at < hb.start_at && t.end_at > hb.end_at }.first
+      if trip
+        trip.hotel_bookings << hb
+      else
+        trips << Trip.new([], [hb], [])
+      end
+    end
+
+    car_rentals.order(:start_at).each do |cr|
+      trip = trips.select{|t| t.start_at < cr.start_at && t.end_at > cr.end_at }.first
+      if trip
+        trip.car_rentals << cr
+      else
+        trips << Trip.new([], [], [cr])
       end
     end
 
