@@ -1,8 +1,8 @@
 class ImportsController < ApplicationController
+  protect_from_forgery except: :create 
+
   def create
-    raise params
-    f = params[:something-from-the-docs]
-    doc = Nokogiri::XML(f)
+    doc = Nokogiri::XML(request.body.read)
     EmailParser.import!(doc)
   end
 end
