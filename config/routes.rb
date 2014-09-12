@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/users/:id' => 'home#show', as: :user
 
+  post '/import' => 'imports#create', as: :import
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

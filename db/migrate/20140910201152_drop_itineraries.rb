@@ -11,5 +11,7 @@ class DropItineraries < ActiveRecord::Migration
       t.timestamps
       t.references :user
     end
+    add_column :hotel_bookings, :itinerary_id, :integer
+    add_column :car_rentals, :itinerary_id, :integer
   end
 end

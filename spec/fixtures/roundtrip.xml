@@ -1,0 +1,125 @@
+<ns2:worldmate-parsing-result request-id="93891697" received="2014-09-11T02:28:44.000Z" xmlns:ns2="http://www.worldmate.com/schemas/worldmate-api-v1.xsd">
+        <status>SUCCESS</status>
+        <error-msg>An itinerary confirmation e-mail was parsed successfully</error-msg>
+        <headers>
+                <header value="&lt;leeredwards@gmail.com&gt;" name="Return-Path"/>
+                <header value="v=1; a=rsa-sha256; c=relaxed/relaxed;
+                                d=gmail.com; s=20120113;
+                                h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+                                 :content-type;
+                                bh=zyYIiy+08cuXncaDiFNriu991g69cvz3NIPYT/nRwTg=;
+                                b=JwFwfyROimXjK4SsRH/eG1txaUGSzTfDUwi2ievyau31RbHCts3vmaEL/IZ0kWUkIE
+                                 vFQ0LxKP5RJS96+7LgaIsgYigfXj1xgVhMtfMvDn0duHQyLY+9XbmSfgyVGwVJNBoFjt
+                                 3cRbA4AKcAIZMiEeA7PxCgHXo2V2gzQr6SUzMBbwQJ5F8JpxkfMGyrVpHs3q8c3prson
+                                 CkWudX2cOmn3/3zMsrkAQbg8dtjqcrK00NIu6VSGCa1sEnwda0LwQHBvRIhUSi36Nb/P
+                                 rruL2mYOD9DpFo7g6QSq8ykA4Adp5Zl2KUG95FOPg3GVVMO4w66YG/sHqCGHFLnuG0eN
+                                 fRsg==" name="DKIM-Signature"/>
+                <header value="apidemo@tomcat-parsing-02.prod.worldmate.com" name="Delivered-To"/>
+                <header value="&lt;1766542238.23198031408574410567.JavaMail.ems@emshlp2003.sabre.com&gt;" name="References"/>
+                <header value="by 10.224.115.79 with SMTP id h15mr51468603qaq.21.1410402521253;
+                                 Wed, 10 Sep 2014 19:28:41 -0700 (PDT)" name="X-Received"/>
+                <header value="SpamAssassin 3.3.1 (2010-03-16) on
+                         tomcat-parsing-02.prod.worldmate.com" name="X-Spam-Checker-Version"/>
+                <header value="Lee Edwards &lt;leeredwards@gmail.com&gt;" name="From"/>
+                <header value="" name="X-Spam-Level"/>
+                <header value="apidemo@worldmate.com" name="To"/>
+                <header value="1.0" name="MIME-Version"/>
+                <header value="&lt;CAOWBnW+kd0xR9jATtK=E=COGYJB933v1Z6LRoASdWyAPY+XOyg@mail.gmail.com&gt;" name="Message-ID"/>
+                <header value="&lt;1766542238.23198031408574410567.JavaMail.ems@emshlp2003.sabre.com&gt;" name="In-Reply-To"/>
+                <header value="No, score=-2.7 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+                          DKIM_VALID,DKIM_VALID_AU,FREEMAIL_FROM,HTML_MESSAGE,RCVD_IN_DNSWL_LOW,
+                          T_FILL_THIS_FORM_SHORT,T_REMOTE_IMAGE,URIBL_BLOCKED autolearn=ham
+                          version=3.3.1" name="X-Spam-Status"/>
+                <header value="by 10.140.50.43 with HTTP; Wed, 10 Sep 2014 19:28:41 -0700 (PDT)" name="Received"/>
+                <header value="multipart/alternative; boundary=047d7bdc78de4511480502c0ed85" name="Content-Type"/>
+                <header value="Wed, 10 Sep 2014 22:28:41 -0400" name="Date"/>
+                <header value="Fwd: Itinerary for your upcoming trip" name="Subject"/>
+                <header value="apidemo@tomcat-parsing-02.prod.worldmate.com" name="X-Original-To"/>
+        </headers>
+        
+        <end-user-emails>
+                <user email="leeredwards@gmail.com" name=""/>
+        </end-user-emails>
+
+        <reservation-details>
+                <booking-details/>
+                <total-price/>
+        </reservation-details>
+
+        <items size="2">
+                <flight>
+                        <notes></notes>
+                        <booking-details>
+                                <confirmation-number>ABCDEF</confirmation-number>
+                        </booking-details>
+                        <provider-details>
+                                <name>Jetblue Airways Corporation</name>
+                                <confirmation-number>ABCDEF</confirmation-number>
+                        </provider-details>
+                        <total-price>
+                                <currency-code>USD</currency-code>
+                        </total-price>
+                        <details number="153" airline-code="B6"/>
+                        <departure>
+                                <latitude>40.63</latitude>
+                                <longitude>-73.77</longitude>
+                                <airport-code>JFK</airport-code>
+                                <name>John F. Kennedy International Airport</name>
+                                <terminal>5</terminal>
+                                <gate>12</gate>
+                                <local-date-time>2014-08-22T18:50:00.000Z</local-date-time>
+                                <utc-date-time>2014-08-22T22:50:00.000Z</utc-date-time>
+                        </departure>
+                        <arrival>
+                                <latitude>26.68</latitude>
+                                <longitude>-80.09</longitude>
+                                <airport-code>PBI</airport-code>
+                                <name>West Palm Beach International Airport</name>
+                                <terminal>A</terminal>
+                                <gate>1</gate>
+                                <local-date-time>2014-08-22T21:51:00.000Z</local-date-time>
+                                <utc-date-time>2014-08-23T01:51:00.000Z</utc-date-time>
+                        </arrival>
+                        <duration>0</duration>
+                        <distance-in-miles>0</distance-in-miles>
+                        <class-type></class-type>
+                </flight>
+                <flight>
+                        <notes></notes>
+                        <booking-details>
+                                <confirmation-number>ABCDEF</confirmation-number>
+                        </booking-details>
+                        <provider-details>
+                                <name>Jetblue Airways Corporation</name>
+                                <confirmation-number>ABCDEF</confirmation-number>
+                        </provider-details>
+                        <total-price>
+                                <currency-code>USD</currency-code>
+                        </total-price>
+                        <details number="153" airline-code="B6"/>
+                        <departure>
+                                <latitude>26.68</latitude>
+                                <longitude>-80.09</longitude>
+                                <airport-code>PBI</airport-code>
+                                <name>West Palm Beach International Airport</name>
+                                <terminal>A</terminal>
+                                <gate>1</gate>
+                                <local-date-time>2014-09-22T08:50:00.000Z</local-date-time>
+                                <utc-date-time>2014-09-23T12:50:00.000Z</utc-date-time>
+                        </departure>
+                        <arrival>
+                                <latitude>40.63</latitude>
+                                <longitude>-73.77</longitude>
+                                <airport-code>JFK</airport-code>
+                                <name>John F. Kennedy International Airport</name>
+                                <terminal>5</terminal>
+                                <gate>12</gate>
+                                <local-date-time>2014-09-22T15:51:00.000Z</local-date-time>
+                                <utc-date-time>2014-09-23T19:51:00.000Z</utc-date-time>
+                        </arrival>
+                        <duration>0</duration>
+                        <distance-in-miles>0</distance-in-miles>
+                        <class-type></class-type>
+                </flight>
+        </items>
+</ns2:worldmate-parsing-result>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910201152) do
+ActiveRecord::Schema.define(version: 20140911224717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,16 +59,40 @@ ActiveRecord::Schema.define(version: 20140910201152) do
     t.integer  "user_id"
   end
 
+  create_table "email_imports", force: true do |t|
+    t.integer  "user_id"
+    t.string   "status"
+    t.text     "xml"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "flight_plans", force: true do |t|
     t.datetime "start_at"
     t.datetime "end_at"
-    t.string   "start_airport"
-    t.string   "end_airport"
+    t.string   "departure_airport_code"
+    t.string   "arrival_airport_code"
     t.integer  "itinerary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "confirmation_code"
     t.integer  "user_id"
+    t.string   "airline_code"
+    t.string   "flight_number"
+    t.string   "airline_name"
+    t.string   "duration"
+    t.string   "distance"
+    t.string   "class_type"
+    t.string   "departure_airport_name"
+    t.float    "departure_latitude"
+    t.float    "departure_longitude"
+    t.string   "departure_terminal"
+    t.string   "departure_gate"
+    t.string   "arrival_airport_name"
+    t.float    "arrival_latitude"
+    t.float    "arrival_longitude"
+    t.string   "arrival_terminal"
+    t.string   "arrival_gate"
   end
 
   create_table "hotel_bookings", force: true do |t|

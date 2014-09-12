@@ -38,8 +38,11 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'rspec-rails', group: :test
+
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'rails_12factor'
 gem 'unicorn'
+gem 'nokogiri'

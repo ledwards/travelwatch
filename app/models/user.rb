@@ -15,10 +15,10 @@ class User < ActiveRecord::Base
   def location_at(time)
     # TODO: This should return a Location object (city/state/country/zip, long/lat, nearest airport)
     plans = flight_plans.order(:start_at)
-    return home_airport if time < plans.first.start_at || time > plans.last.end_at
+    return home_airport_code_name if time < plans.first.start_at || time > plans.last.end_at
     plans.each do |fp|
       if time <= fp.start_at
-        return fp.start_airport
+        return fp.departure_airport_code
       elsif time >= fp.start_at && time <= fp.end_at
         return nil # in transit
       else
@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def home_airport
-    return flight_plans.order(:start_at).first.start_airport
+  def home_airport_code
+    return flight_plans.order(:start_at).first.departure_airport_code
   end
 
   def trips
@@ -40,8 +40,9 @@ class User < ActiveRecord::Base
   def calculate_trips
     trips = []
     flight_plans.order(:start_at).each do |fp|
-      if fp.start_airport == home_airport
+      if fp.departure_airport_code == home_airport_code
         trips << Trip.new([fp])
+        raise "hey" if fp.departure_airport_code == "JFKPBI"
       else
         trips.last.flight_plans << fp
       end
