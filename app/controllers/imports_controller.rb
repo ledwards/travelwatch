@@ -4,5 +4,6 @@ class ImportsController < ApplicationController
   def create
     doc = Nokogiri::XML(request.body.read)
     EmailParser.import!(doc)
+    render status: 200, text: "OK"
   end
 end

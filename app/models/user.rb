@@ -42,7 +42,6 @@ class User < ActiveRecord::Base
     flight_plans.order(:start_at).each do |fp|
       if fp.departure_airport_code == home_airport_code
         trips << Trip.new([fp])
-        raise "hey" if fp.departure_airport_code == "JFKPBI"
       else
         trips.last.flight_plans << fp
       end
