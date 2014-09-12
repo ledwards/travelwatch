@@ -1,7 +1,8 @@
 class EmailParser
   def self.import!(doc)
     status = doc.xpath("//status")[0].text
-    user_email = doc.xpath("//end-user-emails/user")[0].attribute("email").text
+    from = doc.xpath("//headers/header[@name='From']")[0].attribute("value").text
+    user_email = /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/.match(from)[0]
     user = User.find_by_email(user_email)
     EmailImport.create(user: user, status: status, xml: doc.to_xml)
 

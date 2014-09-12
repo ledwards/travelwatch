@@ -47,10 +47,8 @@ describe EmailParser do
     EmailParser.import!(doc)
     fp1, fp2 = @user.flight_plans
 
-    # expect(FlightPlan.count).to eq(2)
-    # expect(@user.trips.first.flight_plans.map(&:id)).to eq([fp1.id, fp2.id])
-
+    expect(@user.trips.first.flight_plans.map(&:id)).to eq([fp1.id, fp2.id])
     expect(fp1.departure_airport_code).to eq("JFK")
-    expect(fp2.departure_airport_code).to eq("PBI")
+    expect(fp2.departure_airport_code).to eq("SFO")
   end
 end
