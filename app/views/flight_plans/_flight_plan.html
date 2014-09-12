@@ -1,16 +1,16 @@
 <li class="flight_plan">
   <h3>
-    <%= flight_plan.start_airport %> -> <%= flight_plan.end_airport %> on <%= flight_plan.start_at.strftime("%m/%d/%Y") %>
+    <%= flight_plan.departure_airport_code %> -> <%= flight_plan.arrival_airport_code %> on <%= flight_plan.start_at.strftime("%m/%d/%Y") %>
   </h3>
   <dl>
     <dt>Departs</dt>
     <dd>
-      <%= flight_plan.start_airport %>
+      <%= flight_plan.departure_airport_code %>
       <%= flight_plan.start_at.strftime("%m/%d/%Y %l:%M%P") %>
     </dd>
     <dt>Arrives</dt>
     <dd>
-      <%= flight_plan.end_airport %>
+      <%= flight_plan.arrival_airport_code %>
       <%= flight_plan.end_at.strftime("%m/%d/%Y %l:%M%P") %>
     </dd>
   </dl>
