@@ -11,7 +11,7 @@ class Trip
 
   def round_trip?
     return false if flight_plans.empty?
-    self.flight_plans.first.start_airport == self.flight_plans.last.end_airport
+    self.flight_plans.first.departure_airport_code == self.flight_plans.last.arrival_airport_code
   end
 
   def items
@@ -21,7 +21,7 @@ class Trip
   def destination
     return nil if flight_plans.empty?
     midpoint = flight_plans.length / 2 - 1
-    flight_plans[midpoint].end_airport
+    flight_plans[midpoint].arrival_airport_code
   end
 
   def start_at

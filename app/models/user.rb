@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   end
 
   def home_airport_code
-    return flight_plans.order(:start_at).first.departure_airport_code
+    flight_plans.any? ? flight_plans.order(:start_at).first.departure_airport_code : "none"
   end
 
   def trips

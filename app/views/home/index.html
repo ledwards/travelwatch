@@ -1,3 +1,5 @@
+<h1>Travelwatch</h1>
+<h2>Look at everyone's data</h2>
 <ol>
   <% @users.each do |user| %>
     <li>
@@ -6,8 +8,11 @@
   <% end %>
 </ol>
 
-<%= link_to "+ Add a user", new_user_registration_path %>
+<h2>Create a user account</h2>
+<%= link_to "Register", new_user_registration_path %>
+<br><br>
 
+<h2>Add flights</h2>
 <p>
-  Forward an itinerary to: <strong>travel@ledwards.com</strong>
+  Forward an itinerary to <strong>travel@ledwards.com</strong> from a registered account.
 </p>
