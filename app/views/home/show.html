@@ -1,4 +1,4 @@
-<h1>Trips for <%= @user.email %> (Home: <%= current_user.home_airport_code %>)</h1>
+<h1>Trips for <%= @user.email %> (Home: <%= @user.home_airport_code %>)</h1>
 
 <ul class="trips">
   <% @user.trips.each do |trip| %>
