@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911224717) do
+ActiveRecord::Schema.define(version: 20141109032810) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20140911224717) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "addresses", force: true do |t|
+    t.string  "street"
+    t.string  "city"
+    t.string  "state_code"
+    t.string  "country_code"
+    t.string  "country_name"
+    t.string  "postal_code"
+    t.decimal "longitude",    precision: 9, scale: 6
+    t.decimal "latitude",     precision: 9, scale: 6
+  end
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -93,14 +104,20 @@ ActiveRecord::Schema.define(version: 20140911224717) do
   end
 
   create_table "hotel_bookings", force: true do |t|
-    t.string   "name"
+    t.string   "hotel_name"
     t.datetime "start_at"
     t.datetime "end_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "confirmation_code"
     t.integer  "user_id"
+    t.string   "room"
+    t.string   "hotel_phone"
+    t.integer  "address_id"
   end
+
+  add_index "hotel_bookings", ["address_id"], name: "index_hotel_bookings_on_address_id", using: :btree
+  add_index "hotel_bookings", ["user_id"], name: "index_hotel_bookings_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

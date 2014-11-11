@@ -33,5 +33,30 @@ class EmailParser
 
       fp.save
     end
+
+    doc.xpath("//items/hotel-reservation").each_with_index do |node, i|
+      hotel = HotelBooking.new
+      hotel.user = user
+      hotel.address = Address.new
+
+      hotel.confirmation_code = node.xpath("provider-details/confirmation-number").text
+      hotel.hotel_name = node.xpath("provider-details/name").text
+      hotel.hotel_phone = node.xpath("provider-details/phone").text
+      hotel.room = node.xpath("room").text
+
+      hotel.address.latitude = node.xpath("address/latitude").text.to_f
+      hotel.address.longitude = node.xpath("address/longitude").text.to_f
+      hotel.address.street = node.xpath("address/street").text
+      hotel.address.city = node.xpath("address/city").text
+      hotel.address.state_code = node.xpath("address/state-code").text
+      hotel.address.country_code = node.xpath("address/country-code").text
+      hotel.address.country_name = node.xpath("address/country-name").text
+      hotel.address.postal_code = node.xpath("address/postal-code").text
+
+      hotel.start_at = DateTime.parse(node.xpath("check-in").text)
+      hotel.end_at = DateTime.parse(node.xpath("check-out").text)
+
+      hotel.save
+    end
   end
 end
