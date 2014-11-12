@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109032810) do
+ActiveRecord::Schema.define(version: 20141112023200) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -58,14 +58,24 @@ ActiveRecord::Schema.define(version: 20141109032810) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "car_rentals", force: true do |t|
-    t.string   "company"
+    t.string   "company_name"
     t.datetime "start_at"
     t.datetime "end_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "confirmation_code"
     t.integer  "user_id"
+    t.string   "car_type"
+    t.integer  "pickup_address_id"
+    t.integer  "dropoff_address_id"
+    t.string   "pickup_phone"
+    t.string   "dropoff_phone"
+    t.text     "notes"
   end
+
+  add_index "car_rentals", ["dropoff_address_id"], name: "index_car_rentals_on_dropoff_address_id", using: :btree
+  add_index "car_rentals", ["pickup_address_id"], name: "index_car_rentals_on_pickup_address_id", using: :btree
+  add_index "car_rentals", ["user_id"], name: "index_car_rentals_on_user_id", using: :btree
 
   create_table "email_imports", force: true do |t|
     t.integer  "user_id"
