@@ -1,6 +1,6 @@
 <li class="hotel_booking">
   <h3>
-    <%= hotel_booking.name %> on <%= hotel_booking.start_at.strftime("%m/%d/%Y") %>
+    <%= hotel_booking.hotel_name %> on <%= hotel_booking.start_at.strftime("%m/%d/%Y") %>
   </h3>
   <dl>
     <dt>Check In</dt>
@@ -14,3 +14,4 @@
   </dl>
   <h4>Confirmation Code: <%= hotel_booking.confirmation_code %></h4>
 </li>
+
