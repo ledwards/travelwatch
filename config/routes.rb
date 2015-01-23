@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   post '/import' => 'imports#create', as: :import
 
+  get '/api/trips/:user_id' => 'api#trips', as: :api_trips
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
