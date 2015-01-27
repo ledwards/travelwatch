@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :hotel_bookings
   has_many :car_rentals
 
+  validates :email, uniqueness: true
+
   def trip_items
     (flight_plans + hotel_bookings + car_rentals).order(:start_at)
   end

@@ -1,6 +1,8 @@
 class ApiController < ApplicationController
+  acts_as_token_authentication_handler_for User
+
   def trips
-    @user = User.find(params[:user_id])
+    @user = current_user
     render json: @user.trips.to_json
   end
 end
