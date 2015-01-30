@@ -3,7 +3,7 @@
 <ol class="trips">
   <% @user.trips.each do |trip| %>
     <li class="trip">
-      <h2><%= trip.items.first.start_at.strftime("%b %-d") %> Trip to <%= trip.destination %></h2>
+      <h2><%= trip.description %></h2>
       <ul class="items">
         <%= render trip.items %>
       </ul>
